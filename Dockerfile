@@ -13,12 +13,12 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 RUN docker-php-ext-install zip
 RUN docker-php-ext-enable zip
 
-RUN git clone https://github.com/filegator/filegator.git /var/www/filegator/
+RUN git clone https://github.com/Veles/filegator.git /var/www/filegator/
 WORKDIR "/var/www/filegator/"
-RUN cp configuration_sample.php configuration.php
+COPY configuration.php /var/www/filegator/configuration.php
+ADD sender_rsa .
 RUN composer install
 RUN composer require league/flysystem-sftp:^1.0 -W
-RUN composer require league/flysystem-aws-s3-v3:^1.0 -W
 RUN npm install
 RUN npm run build
 RUN vendor/bin/phpunit
