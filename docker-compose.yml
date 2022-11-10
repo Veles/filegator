@@ -5,7 +5,7 @@ services:
     image: filegator:latest
     restart: always
       - traefik.enable=true
-      - traefik.http.routers.filegator.rule=Host(`insta.derunix.ru`)
+      - traefik.http.routers.filegator.rule=Host(`files.derunix.ru`)
       - traefik.http.routers.filegator.entrypoints=websecure
       - traefik.http.routers.filegator.tls.certresolver=myresolver
       - traefik.http.services.filegator.loadbalancer.server.port=80      
