@@ -12,7 +12,7 @@ services:
     expose:
       - 80
     volumes:
-      - /opt/docker/apps/files.derunix.ru/repository:/var/www/filegator/repository
+      - /storage/gator:/var/www/filegator/repository
       - private:/var/www/filegator/private
 
 volumes:
