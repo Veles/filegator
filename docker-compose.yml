@@ -4,10 +4,15 @@ services:
     build: .
     image: filegator:latest
     restart: always
-    ports:
-      - "8080:80"
+      - traefik.enable=true
+      - traefik.http.routers.filegator.rule=Host(`insta.derunix.ru`)
+      - traefik.http.routers.filegator.entrypoints=websecure
+      - traefik.http.routers.filegator.tls.certresolver=myresolver
+      - traefik.http.services.filegator.loadbalancer.server.port=80      
+    expose:
+      - 80
     volumes:
-      - repository:/var/www/filegator/repository
+      - /opt/docker/apps/files.derunix.ru/repository:/var/www/filegator/repository
       - private:/var/www/filegator/private
 
 volumes:
