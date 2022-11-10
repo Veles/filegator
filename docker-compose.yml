@@ -3,7 +3,7 @@ services:
   filegator:
     build: .
     image: filegator:latest
-    restart: always
+    labels:
       - traefik.enable=true
       - traefik.http.routers.filegator.rule=Host(`files.derunix.ru`)
       - traefik.http.routers.filegator.entrypoints=websecure
