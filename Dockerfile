@@ -15,7 +15,7 @@ RUN docker-php-ext-enable zip
 
 RUN git clone https://github.com/Veles/filegator.git /var/www/filegator/
 WORKDIR "/var/www/filegator/"
-
+COPY configuration.php  /var/www/filegator/configuration.php
 
 RUN composer install
 RUN composer require league/flysystem-sftp:^1.0 -W
