@@ -2,7 +2,7 @@ version: '2'
 services:
   filegator:
     build: .
-    image: filegator:latest
+    image: filegator
     labels:
       - traefik.enable=true
       - traefik.http.routers.filegator.rule=Host(`files.derunix.ru`)
