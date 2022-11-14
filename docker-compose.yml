@@ -18,3 +18,7 @@ services:
 volumes:
   private:
   sshvolume:
+networks:
+   default:
+      external:
+         name: docker_default
