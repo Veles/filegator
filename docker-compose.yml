@@ -12,7 +12,7 @@ services:
     expose:
       - 80
     volumes:
-      - /storage/gator:/var/www/filegator/repository
+      - /storage/knowledge:/var/www/filegator/repository
       - private:/var/www/filegator/private
 
 volumes:
