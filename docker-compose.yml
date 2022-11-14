@@ -2,6 +2,7 @@ version: '2'
 services:
   filegator:
     build: .
+    image: filegator
     labels:
       - traefik.enable=true
       - traefik.http.routers.filegator.rule=Host(`files.derunix.ru`)
@@ -11,6 +12,7 @@ services:
     expose:
       - 80
     volumes:
+      - /opt/docker/apps/files.derunix.ru/configuration.php:/var/www/filegator/configuration.php:ro
       - /storage/knowledge:/var/www/filegator/repository
       - private:/var/www/filegator/private
 
